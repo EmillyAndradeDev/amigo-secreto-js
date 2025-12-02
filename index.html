@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigo Secreto</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <div class="text-center mb-4">
+                    <h1><i class="bi bi-gift-fill me-2"></i> Amigo Secreto</h1>
+                    <p class="text-white-50">Natal 2025</p>
+                </div>
+
+                <div id="admin-screen" class="card shadow p-4">
+                    <div class="input-group mb-3">
+                        <input type="text" id="nome-input" class="form-control" placeholder="Nome do participante">
+                        <button class="btn btn-success" onclick="adicionarNome()">Adicionar</button>
+                    </div>
+
+                    <ul id="lista-participantes" class="list-group mb-3">
+                    </ul>
+
+                    <button id="btn-sortear" class="btn btn-primary w-100" onclick="realizarSorteio()" disabled>
+                        Gerar Links de Sorteio
+                    </button>
+
+                    <div id="resultado-links" class="mt-4 d-none">
+                        <h5 class="text-center">Envie os links abaixo:</h5>
+                        <ul id="lista-links" class="list-group"></ul>
+                    </div>
+                </div>
+
+                <div id="reveal-screen" class="card shadow p-4 d-none text-center">
+                    <h3>Olá!</h3>
+                    <p>Alguém sorteou você. Clique abaixo para ver quem você tirou.</p>
+
+                    <div class="mt-4" onclick="revelarSegredo()">
+                        <span class="btn-revelar-icone">🎁</span>
+                        <button class="btn btn-danger btn-lg mt-2">
+                            Abrir Presente
+                        </button>
+                    </div>
+
+                    <h2 id="nome-amigo" class="mt-4 text-success fw-bold"></h2>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
