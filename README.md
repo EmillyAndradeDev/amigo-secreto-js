@@ -3,14 +3,15 @@
 Uma aplicação web para realizar sorteios de Amigo Secreto de forma remota, sem cadastro e sem banco de dados. O projeto gera links únicos e criptografados que podem ser enviados via WhatsApp, garantindo que apenas a pessoa certa veja quem tirou.
 
 
-> **[Clique aqui para ver o Projeto Online](#)**
+> **[Clique aqui para ver o Projeto Online](https://emillyandradedev.github.io/amigo-secreto-js/)**
 
 ---
 
 ## 📸 Screenshots
 
 | Tela de Sorteio (Admin) | Tela de Revelação (Usuário) |
- |:---:|:---:| 
+|:---:|:---:|
+| ![Tela Admin](assets/img/screenshot-admin02.png) | ![Tela Usuário](assets/img/screenshot-revelacao.png) |
 
 ---
 
@@ -21,6 +22,8 @@ Uma aplicação web para realizar sorteios de Amigo Secreto de forma remota, sem
 * **Sorteio Inteligente:** Algoritmo que impede que uma pessoa tire a si mesma.
 
 * Sem Servidor **(Client-Side):** Toda a lógica acontece no navegador. O "segredo" é passado via URL.
+
+* **Persistência de Dados:** Uso de ```localStorage``` para salvar/carregar a lista automaticamente, garantindo que os dados permaneçam salvos entre sessões sem necessidade de banco de dados.
 
 * **Compartilhamento Fácil:**
 
@@ -34,7 +37,7 @@ Uma aplicação web para realizar sorteios de Amigo Secreto de forma remota, sem
 
 ### 🛠️ Tecnologias Utilizadas
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=plastic&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=plastic&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=plastic&logo=javascript&logoColor=black) ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=plastic&logo=bootstrap&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=plastic&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=plastic&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=plastic&logo=javascript&logoColor=black) ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=plastic&logo=bootstrap&logoColor=white) ![localStorage](https://img.shields.io/badge/localStorage-000000?style=plastic&logo=javascript&logoColor=F7DF1E)
 
 ---
 
@@ -68,7 +71,7 @@ const segredo = params.get('k'); // Recupera o hash
 ├── css/
 │   └── style.css   
 ├── js/
-│   └── app.js        # Lógica de sorteio, criptografia e eventos
+│   └── app.js
 ├── index.html 
 └── README.md
 ```
@@ -78,14 +81,13 @@ const segredo = params.get('k'); // Recupera o hash
 
 1. Clone este repositório:
 ```bash
-git clone https://github.com/SEU-USUARIO/amigo-secreto.git
+git clone https://github.com/EmillyAndradeDev/amigo-secreto-js.git
 ```
 2. Abra o arquivo ```index.html``` no seu navegador.
 
 ---
 
 ### 🌟 Melhorias Futuras (Roadmap)
-* [ ] Adicionar persistência local (```localStorage```) para não perder a lista se fechar a aba.
 
 * [ ] Criar opção de "Restrições" (ex: Casais não podem se tirar).
 
