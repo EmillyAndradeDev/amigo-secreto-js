@@ -122,26 +122,49 @@
         cursor: pointer;
     }
 
-body::before {
+body::before,
+body::after {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
+    border-radius: 0;
+}
+
+body::before {
     background-image: 
-        radial-gradient(4px 4px at 100px 50px, #fff 50%, transparent), 
-        radial-gradient(6px 6px at 200px 150px, #fff 50%, transparent), 
-        radial-gradient(3px 3px at 300px 250px, #fff 50%, transparent);
+        radial-gradient(3px 3px at 100px 50px, #fff 50%, transparent),
+        radial-gradient(2px 2px at 200px 150px, #fff 50%, transparent),
+        radial-gradient(3px 3px at 300px 250px, #fff 50%, transparent),
+        radial-gradient(2px 2px at 400px 350px, #fff 50%, transparent),
+        radial-gradient(3px 3px at 500px 100px, #fff 50%, transparent),
+        radial-gradient(2px 2px at 600px 400px, #fff 50%, transparent),
+        radial-gradient(2px 2px at 800px 250px, #fff 50%, transparent);
     background-size: 650px 650px;
+    opacity: 0.5;
+    animation: neve 20s linear infinite;
+}
+
+body::after {
+    background-image: 
+        radial-gradient(5px 5px at 150px 100px, #fff 50%, transparent),
+        radial-gradient(6px 6px at 350px 300px, #fff 50%, transparent),
+        radial-gradient(4px 4px at 600px 500px, #fff 50%, transparent);
+    background-size: 450px 450px;
+    opacity: 0.8;
     animation: neve 10s linear infinite;
-    opacity: 0.3;
 }
 
 @keyframes neve {
-    0% { background-position: 0 0; }
-    100% { background-position: 100px 650px; }
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 650px;
+    }
 }
 
 .btn-copiar {
