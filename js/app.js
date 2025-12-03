@@ -8,10 +8,16 @@ window.onload = function() {
         document.getElementById('admin-screen').classList.add('d-none');
         document.getElementById('reveal-screen').classList.remove('d-none');
         document.getElementById('reveal-screen').setAttribute('data-segredo', segredo);
+        return; 
+    }
+
+    const participantesSalvos = localStorage.getItem('participantes');
+    if (participantesSalvos) {
+        participantes = JSON.parse(participantesSalvos);
+        atualizarLista();
     }
 
     const inputNome = document.getElementById('nome-input');
-    
     if (inputNome) {
         inputNome.addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
@@ -21,13 +27,20 @@ window.onload = function() {
     }
 };
 
-
 function adicionarNome() {
     const input = document.getElementById('nome-input');
     const nome = input.value.trim();
 
+    if (participantes.includes(nome)) {
+        alert('Este nome já foi adicionado!');
+        return;
+    }
+
     if (nome) {
         participantes.push(nome);
+        
+        salvarNoLocalStorage();
+        
         atualizarLista();
         input.value = '';
         input.focus();
@@ -49,7 +62,14 @@ function atualizarLista() {
 
 function removerNome(index) {
     participantes.splice(index, 1);
+    
+    salvarNoLocalStorage();
+    
     atualizarLista();
+}
+
+function salvarNoLocalStorage() {
+    localStorage.setItem('participantes', JSON.stringify(participantes));
 }
 
 function realizarSorteio() {
@@ -111,7 +131,6 @@ function revelarSegredo() {
     
     try {
         const nomeRevelado = decodeURIComponent(atob(hash));
-        
         document.getElementById('nome-amigo').innerText = nomeRevelado;
     } catch (e) {
         alert("Link inválido ou corrompido!");
